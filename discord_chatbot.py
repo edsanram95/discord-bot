@@ -11,6 +11,13 @@ intents = discord.Intents.default()
 intents.message_content = True
 CHANNEL_ID = 1215757579352014958    
 
+# Grab token from text file
+token_file_path = 'bot_token.txt'
+token = ''
+with open(token_file_path, 'r') as file:
+    token = file.read().strip()
+
+
 # Initialize your bot. Bot can be summoned with "!name"
 bot = commands.Bot(command_prefix='!', intents=intents)
 
@@ -47,7 +54,7 @@ async def generate_response(ctx, *, prompt: str):
     await ctx.send(response)
     
 # Run your bot
-bot.run(token = 'MTIxMDY2NjA5NjI3ODExMDIyOQ.GBwoMA._znlF74QMslM6kY8FN2QD6X1lscOP146c9dyLo')
+bot.run(token)
 
 """Install the required libraries (discord.py and transformers) using
 pip install discord.py transformers torch
